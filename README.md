@@ -1,8 +1,8 @@
-# 🎭 Playwright JavaScript Practice
+# Playwright JavaScript Practice
 
 This project is a hands-on learning repository for mastering [Playwright](https://playwright.dev/) with JavaScript.
 
-## 📁 Structure
+## Structure
 
 tests/
 ├── Alerts.spec.js
@@ -29,7 +29,7 @@ markdown
 Copy
 Edit
 
-## ✅ Topics Covered
+## Topics Covered
 
 - **UI Elements**: inputs, checkboxes, radio buttons, dropdowns
 - **Locators**: built-in, multiple, dynamic
@@ -39,14 +39,14 @@ Edit
 - **Page Navigation & Forms**
 - **Codegen**: recorded scenarios
 
-## 🚀 Usage
+## Usage
 
 ```bash
 npm install
 npx playwright test                  # Run all tests
 npx playwright test tests/<file>    # Run specific test
 npx playwright show-report          # View test report
-🧪 Tools
+  Tools
 Playwright
 
 JavaScript (ES6+)
