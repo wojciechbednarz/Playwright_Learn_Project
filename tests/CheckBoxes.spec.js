@@ -1,13 +1,13 @@
-const { test, expect } = require("@playwright/test");
+const { test, expect } = require('@playwright/test');
 
-test("Check Boxes", async ({ page }) => {
-  const myPage = "https://practice-automation.com/form-fields/";
+test('Check Boxes', async ({ page }) => {
+  const myPage = 'https://practice-automation.com/form-fields/';
 
   await page.goto(myPage);
 
   //const coffeeCheckboxLocator = page.locator('//input[@id="drink3"]')
-  const coffeeCheckboxLocator1 = page.getByRole("checkbox", { name: "Coffee" });
-  const coffeeCheckboxLocator2 = page.getByTestId("drink3");
+  const coffeeCheckboxLocator1 = page.getByRole('checkbox', { name: 'Coffee' });
+  const coffeeCheckboxLocator2 = page.getByTestId('drink3');
   await expect(coffeeCheckboxLocator1).not.toBeChecked();
   await expect(coffeeCheckboxLocator2).not.toBeChecked();
   await coffeeCheckboxLocator1.check();
@@ -19,11 +19,11 @@ test("Check Boxes", async ({ page }) => {
   await expect(isChecked).toBeFalsy();
 
   const checkboxLocators = [
-    "#drink5",
-    "#drink4",
-    "#drink3",
-    "#drink2",
-    "#drink1",
+    '#drink5',
+    '#drink4',
+    '#drink3',
+    '#drink2',
+    '#drink1',
   ];
 
   for (const locator of checkboxLocators) {

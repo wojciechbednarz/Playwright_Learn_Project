@@ -1,11 +1,11 @@
-const { test, expect } = require("@playwright/test");
+const { test, expect } = require('@playwright/test');
 
-test("Auto Suggest Dropdowns", async ({ page }) => {
-  const myPage = "https://www.flixbus.pl/";
+test('Auto Suggest Dropdowns', async ({ page }) => {
+  const myPage = 'https://www.flixbus.pl/';
   await page.goto(myPage);
 
-  const fromFieldLocator = await page.locator("#searchInput-from");
-  await fromFieldLocator.fill("Warszawa");
+  const fromFieldLocator = await page.locator('#searchInput-from');
+  await fromFieldLocator.fill('Warszawa');
   await page.waitForSelector(
     '//*[starts-with(@id, "hcr-autocomplete-:r1:-option-")]//span',
   );
@@ -16,7 +16,7 @@ test("Auto Suggest Dropdowns", async ({ page }) => {
   for (let place of placeOptionsLocator) {
     const placeText = await place.textContent();
     console.log(placeText);
-    if (placeText.includes("Młociny")) {
+    if (placeText.includes('Młociny')) {
       await place.click();
       break;
     }

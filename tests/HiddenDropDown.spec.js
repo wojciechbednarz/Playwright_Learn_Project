@@ -1,19 +1,19 @@
-const { test, expect } = require("@playwright/test");
+const { test, expect } = require('@playwright/test');
 
-test("Hidden Dropdowns", async ({ page }) => {
+test('Hidden Dropdowns', async ({ page }) => {
   const myPage =
-    "https://opensource-demo.orangehrmlive.com/web/index.php/auth/login";
+    'https://opensource-demo.orangehrmlive.com/web/index.php/auth/login';
 
   await page.goto(myPage);
-  await page.locator("//input[@placeholder='Username']").fill("Admin");
-  await page.locator("//input[@placeholder='Password']").fill("admin123");
+  await page.locator("//input[@placeholder='Username']").fill('Admin');
+  await page.locator("//input[@placeholder='Password']").fill('admin123');
   await page.click("//button[normalize-space()='Login']");
   await page.click("//span[normalize-space()='PIM']");
 
   //await page.getByText('-- Select --').nth(1).click();
   await page
     .locator(
-      "div:nth-child(6) > .oxd-input-group > div:nth-child(2) > .oxd-select-wrapper > .oxd-select-text",
+      'div:nth-child(6) > .oxd-input-group > div:nth-child(2) > .oxd-select-wrapper > .oxd-select-text',
     )
     .click();
 
@@ -23,7 +23,7 @@ test("Hidden Dropdowns", async ({ page }) => {
   for (let job of allJobs) {
     const jobText = await job.textContent();
     console.log(jobText?.trim());
-    if (jobText.includes("QA Engineer")) {
+    if (jobText.includes('QA Engineer')) {
       job.click();
       break;
     }

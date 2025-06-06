@@ -1,37 +1,37 @@
-const { test, expect } = require("@playwright/test");
+const { test, expect } = require('@playwright/test');
 
-test("Dropdowns", async ({ page }) => {
-  const myPage = "https://practice-automation.com/form-fields/";
+test('Dropdowns', async ({ page }) => {
+  const myPage = 'https://practice-automation.com/form-fields/';
 
   await page.goto(myPage);
 
-  const dropDownLocator = await page.locator("#automation");
+  const dropDownLocator = await page.locator('#automation');
 
   // Multiple ways ot select
-  await dropDownLocator.selectOption({ label: "Yes" });
-  await dropDownLocator.selectOption({ value: "no" });
-  await dropDownLocator.selectOption("Yes");
-  await dropDownLocator.selectOption("no");
+  await dropDownLocator.selectOption({ label: 'Yes' });
+  await dropDownLocator.selectOption({ value: 'no' });
+  await dropDownLocator.selectOption('Yes');
+  await dropDownLocator.selectOption('no');
   await dropDownLocator.selectOption({ index: 3 });
-  await dropDownLocator.selectOption({ label: "Undecided" });
+  await dropDownLocator.selectOption({ label: 'Undecided' });
 
-  await page.selectOption("#automation", "Yes");
+  await page.selectOption('#automation', 'Yes');
 
   // Check number of options in dropdown 1
-  const allOptionsDropdown1 = await page.locator("#automation option");
+  const allOptionsDropdown1 = await page.locator('#automation option');
   await expect(allOptionsDropdown1).toHaveCount(4);
 
   // Check number of options in dropdown 2 - array format
-  const allOptionsDropdown2 = await page.$$("#automation option");
-  console.log("Count of options: ", allOptionsDropdown2.length);
+  const allOptionsDropdown2 = await page.$$('#automation option');
+  console.log('Count of options: ', allOptionsDropdown2.length);
   await expect(allOptionsDropdown2.length).toBe(4);
 
-  const textContentDropdown = await page.locator("#automation").textContent();
-  await expect(textContentDropdown.includes("No")).toBeTruthy();
+  const textContentDropdown = await page.locator('#automation').textContent();
+  await expect(textContentDropdown.includes('No')).toBeTruthy();
 
   for (const optionlocator of allOptionsDropdown2) {
     let locatorTextContent = await optionlocator.textContent();
-    if (locatorTextContent.includes("Yes")) {
+    if (locatorTextContent.includes('Yes')) {
       console.log(locatorTextContent);
     }
   }
@@ -53,7 +53,7 @@ test("Dropdowns", async ({ page }) => {
 
   for (const optionlocator of allOptionsDropdown2) {
     let locatorTextContent = await optionlocator.textContent();
-    if (locatorTextContent.includes("Yes")) {
+    if (locatorTextContent.includes('Yes')) {
       await dropDownLocator.selectOption(locatorTextContent);
       break;
     }

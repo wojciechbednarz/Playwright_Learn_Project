@@ -1,10 +1,10 @@
-const { test, expect } = require("@playwright/test");
+const { test, expect } = require('@playwright/test');
 
-test("Radio Buttons", async ({ page }) => {
-  const myPage = "https://practice-automation.com/form-fields/";
+test('Radio Buttons', async ({ page }) => {
+  const myPage = 'https://practice-automation.com/form-fields/';
   await page.goto(myPage);
 
-  await expect(page.locator("#color1")).toBeVisible();
+  await expect(page.locator('#color1')).toBeVisible();
 
   const yellowRadioButtonLocator = page.locator("//input[@id='color3']");
   await expect(yellowRadioButtonLocator).toBeVisible();
@@ -13,7 +13,7 @@ test("Radio Buttons", async ({ page }) => {
   await expect(yellowRadioButtonLocator.isChecked).toBeTruthy();
 
   await expect(
-    await page.getByRole("radio", { name: "#FFC0CB" }).isChecked(),
+    await page.getByRole('radio', { name: '#FFC0CB' }).isChecked(),
   ).toBeFalsy();
 
   await page.waitForTimeout(5000);
